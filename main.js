@@ -34,7 +34,6 @@ let navHeight;
 // Mengubah style height dari class .nav-list berdasarkan klik pada button dengan class .btn-toggle
 toggleBtn.addEventListener('click', function() {
   navHeight = navList.getBoundingClientRect().height;
-  console.log(navHeight);
   if (navHeight === 0) {
   navList.style.height = '20vh';
   } else {
@@ -90,39 +89,34 @@ scrollBtn.forEach(function(btns) {
     navHeight = navList.getBoundingClientRect().height;
     // Mendeklarasikan variable position dengan value jarak antara elemen yg dituju dengan elemen parentnya
     let position = element.offsetTop;
-    console.log(navList.style.height);
 
     // Membuat pengkondisian untuk menentukan ke mana auto scroll akan diarahkan
-    // pada saat user mengakses menggunakan mobile device screen
+    // pada saat user mengakses menggunakan big screen
     if (navList.style.height === '0px') {
       if (id === 'home') {
         window.scrollTo({
         left: 0,
         top: position - 200,
         })
-        console.log('a');
       } else {
         window.scrollTo({
         left: 0,
         top: position - 100,
         })
-        console.log('b');
       }
     // Membuat pengkondisian untuk menentukan ke mana auto scroll akan diarahkan
-    // pada saat user mengakses menggunakan big screen
+    // pada saat user mengakses menggunakan mobile device screen
     } else {
       if (id === 'home') {
         window.scrollTo({
         left: 0,
         top: position - 400,
         })
-        console.log('c');
       } else {
         window.scrollTo({
         left: 0,
         top: position - 200,
         })
-        console.log('d');
       }
     }
     // Menutup dropdown setelah link diklik
