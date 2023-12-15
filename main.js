@@ -1,29 +1,35 @@
 // Mendeklarasikan object tester
 const tester = [
-{
-  name: 'Jesse Pinkman',
-  testimonial: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi quasi labore veniam dignissimos velit pariatur consequatur. Quo natus totam fugiat?',
-},
-{
-  name: 'Walter White',
-  testimonial: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, saepe?'
-},
-{
-  name: 'Gus Fring',
-  testimonial: 'Lorem ipsum dolor sit amet, consectetur. Voluptas dolores ducimus excepturi.'
-},
-{
-  name: 'Hector Salamanca',
-  testimonial: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error atque assumenda sed soluta beatae. Vitae animi perspiciatis dolore omnis asperiores neque alias soluta incidunt commodi provident. Possimus rem hic provident neque porro!'
-},
-{
-  name: 'Saul Goodman',
-  testimonial: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas i.'
-},
-{
-  name: 'Mike Ehrmantraut',
-  testimonial: 'Lorem ipsum dolor sit amet elit. Architecto cumque quaerat dignissimos, eum reiciendis dolore tempore corporis illo similique, quo nostrum recusandae debitis cum tenetur minima alias in quis ex iste iusto ratione fuga.'
-},
+  {
+    name: 'Jesse Pinkman',
+    testimonial:
+      'The Garlic Mayo Brioche is a taste revelation – a simple pleasure with layers of savory delight. Irresistibly satisfying!',
+  },
+  {
+    name: 'Walter White',
+    testimonial:
+      'Brioche Bliss has redefined my brunch experience. The Peanut Butter Bun is a heavenly treat, capturing the essence of childhood comfort.',
+  },
+  {
+    name: 'Gus Fring',
+    testimonial:
+      'Indulgence at its best! The Flip Cheese is a crunchy, cheesy masterpiece that keeps me coming back for more. A true delight!',
+  },
+  {
+    name: 'Hector Salamanca',
+    testimonial:
+      "At Brioche Bliss, every bite tells a story. The menu's diversity, including the Spicy Toast and Flip Cheese, ensures a flavor adventure worth savoring.",
+  },
+  {
+    name: 'Saul Goodman',
+    testimonial:
+      'A gastronomic haven! The Peanut Butter Bun at Brioche Bliss is a testament to perfection – a nostalgic twist with a modern, delectable touch.',
+  },
+  {
+    name: 'Mike Ehrmantraut',
+    testimonial:
+      'Brioche Bliss has mastered the art of balance. The diverse menu, including the Flip Cheese, offers a harmonious blend of simplicity and gourmet indulgence.',
+  },
 ];
 
 // Menyeleksi button & dropdown nav
@@ -32,12 +38,12 @@ const navList = document.querySelector('.nav-list');
 let navHeight;
 
 // Mengubah style height dari class .nav-list berdasarkan klik pada button dengan class .btn-toggle
-toggleBtn.addEventListener('click', function() {
+toggleBtn.addEventListener('click', function () {
   navHeight = navList.getBoundingClientRect().height;
   if (navHeight === 0) {
-  navList.style.height = '20vh';
+    navList.style.height = '20vh';
   } else {
-  navList.style.height = `0`;
+    navList.style.height = `0`;
   }
 });
 
@@ -55,17 +61,17 @@ function showTesti(key) {
 }
 
 // Membuat pengkondisian agar prev button terus berulang berdasarkan jumlah object yg ada
-prevBtn.addEventListener('click', function() {
+prevBtn.addEventListener('click', function () {
   item--;
   if (item < 0) {
-  item = tester.length - 1;
-  showTesti(item);
+    item = tester.length - 1;
+    showTesti(item);
   }
   showTesti(item);
 });
 
 // Membuat pengkondisian agar next button terus berulang berdasarkan jumlah object yg ada
-nextBtn.addEventListener('click', function() {
+nextBtn.addEventListener('click', function () {
   item++;
   if (item === tester.length) {
     item = 0;
@@ -77,8 +83,8 @@ nextBtn.addEventListener('click', function() {
 // Menyeleksi semua button yg memiliki class .scroll
 const scrollBtn = document.querySelectorAll('.scroll');
 // Membuat pengulangan untuk mencari tau button mana yg diklik
-scrollBtn.forEach(function(btns) {
-  btns.addEventListener('click', function(event) {
+scrollBtn.forEach(function (btns) {
+  btns.addEventListener('click', function (event) {
     event.preventDefault();
     // Mengambil value atribut dari button yg diklik dimulai dari index ke-1
     const id = event.currentTarget.getAttribute('href').slice(1);
@@ -95,32 +101,31 @@ scrollBtn.forEach(function(btns) {
     if (navList.style.height === '0px') {
       if (id === 'home') {
         window.scrollTo({
-        left: 0,
-        top: position - 200,
-        })
+          left: 0,
+          top: position - 200,
+        });
       } else {
         window.scrollTo({
-        left: 0,
-        top: position - 100,
-        })
+          left: 0,
+          top: position - 100,
+        });
       }
-    // Membuat pengkondisian untuk menentukan ke mana auto scroll akan diarahkan
-    // pada saat user mengakses menggunakan mobile device screen
+      // Membuat pengkondisian untuk menentukan ke mana auto scroll akan diarahkan
+      // pada saat user mengakses menggunakan mobile device screen
     } else {
       if (id === 'home') {
         window.scrollTo({
-        left: 0,
-        top: position - 400,
-        })
+          left: 0,
+          top: position - 400,
+        });
       } else {
         window.scrollTo({
-        left: 0,
-        top: position - 200,
-        })
+          left: 0,
+          top: position - 200,
+        });
       }
     }
     // Menutup dropdown setelah link diklik
     navList.style.height = 0;
-  })
-})
-
+  });
+});
